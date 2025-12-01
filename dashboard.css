@@ -1,0 +1,195 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      background-color: #f9f9f9;
+    }
+
+    
+    .sidebar {
+      width: 220px;
+      background: #800000; 
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px 0;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 22px;
+      letter-spacing: 1px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar ul li {
+      padding: 15px 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .sidebar ul li:hover,
+    .sidebar ul li.active {
+      background: #a00000; 
+    }
+
+    .sidebar ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+    }
+
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .topbar {
+      background: white;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      border-bottom: 3px solid #800000;
+    }
+
+    .topbar input {
+      padding: 8px 15px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      outline: none;
+      width: 250px;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .profile img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #800000;
+    }
+
+    .dashboard {
+      padding: 25px;
+      overflow-y: auto;
+    }
+
+    .dashboard h1 {
+      margin-bottom: 10px;
+      color: #800000;
+    }
+
+    .dashboard p {
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    .courses {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .course-card {
+      background: white;
+      border-left: 6px solid #800000;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      transition: 0.3s;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .course-card h3 {
+      color: #800000;
+      margin-bottom: 10px;
+    }
+
+    .course-card p {
+      font-size: 14px;
+      color: #555;
+    }
+/* Sidebar list animation */
+.sidebar ul li {
+  opacity: 0;
+  transform: translateX(-15px);
+  list-style-type: disc; /* ensures bullets appear */
+  animation: slideIn 0.6s forwards;
+}
+
+.sidebar ul li:nth-child(1) { animation-delay: 0.1s; }
+.sidebar ul li:nth-child(2) { animation-delay: 0.3s; }
+.sidebar ul li:nth-child(3) { animation-delay: 0.5s; }
+.sidebar ul li:nth-child(4) { animation-delay: 0.7s; }
+.sidebar ul li:nth-child(5) { animation-delay: 0.9s; }
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* Course card pop-up animation */
+.course-card {
+  opacity: 0;
+  transform: scale(0.9);
+  animation: popUp 0.6s ease-out forwards;
+}
+
+/* Delay each card slightly for a staggered pop effect */
+.course-card:nth-child(1) { animation-delay: 0.2s; }
+.course-card:nth-child(2) { animation-delay: 0.4s; }
+.course-card:nth-child(3) { animation-delay: 0.6s; }
+.course-card:nth-child(4) { animation-delay: 0.8s; }
+
+@keyframes popUp {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* Page load fade-in animation */
+
+body {
+  opacity: 0;
+  transform: translateX(-40px);
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}

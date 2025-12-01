@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KL LMS | Home</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      background-color: #f9f9f9;
+      overflow: hidden;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      background: #800000;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px 0;
+
+      /* Animation */
+      transform: translateX(-250px);
+      animation: slideIn 0.8s ease-out forwards;
+    }
+
+    @keyframes slideIn {
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 22px;
+      letter-spacing: 1px;
+      animation: fadeIn 1s ease-in forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar ul li {
+      padding: 15px 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .sidebar ul li:hover,
+    .sidebar ul li.active {
+      background: #a00000;
+    }
+
+    .sidebar ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidebar ul li a:hover {
+      transform: translateX(5px);
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      animation: fadeIn 1.5s ease-in forwards;
+      animation-delay: 0.5s;
+    }
+
+    /* Topbar */
+    .topbar {
+      background: white;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      border-bottom: 3px solid #800000;
+    }
+
+    .topbar input {
+      padding: 8px 15px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      outline: none;
+      width: 250px;
+      transition: all 0.3s;
+    }
+
+    .topbar input:focus {
+      border-color: #800000;
+      box-shadow: 0 0 8px rgba(128, 0, 0, 0.4);
+      transform: scale(1.03);
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .profile img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #800000;
+      transition: 0.3s;
+    }
+
+    .profile img:hover {
+      transform: rotate(10deg) scale(1.1);
+    }
+
+    /* Dashboard */
+    .dashboard {
+      padding: 25px;
+      overflow-y: auto;
+    }
+
+    .dashboard h1 {
+      margin-bottom: 10px;
+      color: #800000;
+      animation: slideDown 1s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .dashboard p {
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    .courses {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .course-card {
+      background: white;
+      border-left: 6px solid #800000;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      transition: 0.4s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: cardFade 0.8s ease forwards;
+    }
+
+    /* Each card appears with slight delay */
+    .course-card:nth-child(1) { animation-delay: 0.5s; }
+    .course-card:nth-child(2) { animation-delay: 0.7s; }
+    .course-card:nth-child(3) { animation-delay: 0.9s; }
+    .course-card:nth-child(4) { animation-delay: 1.1s; }
+
+    @keyframes cardFade {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .course-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .course-card h3 {
+      color: #800000;
+      margin-bottom: 10px;
+    }
+
+    .course-card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+      .topbar input {
+        width: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <div>
+      <h2>KL LMS</h2>
+      <ul>
+        <li class="active"><a href="#">Dashboard</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">Assignments</a></li>
+        <li><a href="#">Grades</a></li>
+        <li><a href="#">Announcements</a></li>
+      </ul>
+    </div>
+    <ul>
+      <li><a href="#">Logout</a></li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <div class="topbar">
+      <input type="text" placeholder="Search courses..." />
+      <div class="profile">
+        <span>Hello, Karthik</span>
+        <img src="https://i.pravatar.cc/100?img=12" alt="Profile">
+      </div>
+    </div>
+
+    <div class="dashboard">
+      <h1>Welcome Back</h1>
+      <p>Here are your active courses:</p>
+
+      <div class="courses">
+        <div class="course-card">
+          <h3>Web Development</h3>
+          <p>Learn HTML, CSS, and JavaScript by building real-world projects.</p>
+        </div>
+
+        <div class="course-card">
+          <h3>Data Structures</h3>
+          <p>Master algorithms and DSA concepts with hands-on coding practice.</p>
+        </div>
+
+        <div class="course-card">
+          <h3>Database Management</h3>
+          <p>Understand SQL and relational database design principles.</p>
+        </div>
+
+        <div class="course-card">
+          <h3>AI & Machine Learning</h3>
+          <p>Explore the fundamentals of AI, ML algorithms, and Python coding.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

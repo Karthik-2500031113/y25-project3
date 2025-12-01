@@ -1,0 +1,66 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KL LMS | Home</title>
+  <link type="text/css" rel="stylesheet" href="dashboard.css"></link>
+</head>
+<body>
+
+  <div class="sidebar">
+    <div>
+      <h2>KL LMS</h2>
+      <ul>
+         <li class="active"><a href="#">Dashboard</a></li>
+          <li><a href="#" onclick="window.location.href='courses.html'">Courses</a></li> 
+          <li><a href="#" onclick="window.location.href='Assignments.html'">Assignments</a></li>
+          <li><a href="#" onclick="window.location.href='Grades.html'">Grades</a></li>
+          <li><a href="#" onclick="window.location.href='Announcements.html'">Announcements</a></li>
+      </ul>
+    </div>
+    <ul>
+      <li><a href="#" onclick="window.location.href='login.html'">Logout</a></li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <div class="topbar">
+      <input type="text" placeholder="Search..." />
+      <div class="profile">
+        <span>Hello, Karthik</span>
+        <a href="profile.html">
+        <img src= "https://i.pravatar.cc/100?img=12"  alt="Profile"></a>
+      </div>
+    </div>
+
+    <div class="dashboard">
+      <h1>Welcome Back </h1>
+      <p>Here are your active courses:</p>
+
+      <div class="courses">
+        <div class="course-card" onclick="location.href='web-development.html'">
+          <h3>Web Development</h3>
+          <p>Learn HTML, CSS, and JavaScript by building real-world projects.</p>
+        </div>
+
+        <div class="course-card"  onclick="location.href='Data-structures.html'">
+          <h3>Data Structures</h3>
+          <p>Master algorithms and DSA concepts with hands-on coding practice.</p>
+        </div>
+
+        <div class="course-card"  onclick="location.href='Database-management.html'">
+          <h3>Database Management</h3>
+          <p>Understand SQL and relational database design principles.</p>
+        </div>
+
+        <div class="course-card"  onclick="location.href='AI&ML.html'">
+          <h3>AI & Machine Learning</h3>
+          <p>Explore the fundamentals of AI, ML algorithms, and Python coding.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
